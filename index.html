@@ -1,1 +1,47 @@
+<!DOCTYPE html>
 
+<html>
+	<head>
+		<script scr="js/script.js"></script>
+		<style>
+			
+			h1 {
+				text-align: center;
+				color: lightgrey;
+				font-family: monospace;
+			}
+
+			body {
+				background-color: grey;
+			}
+
+			.c1Unplugged {
+				position: relative;
+			  width: 50%;
+			  display: inline-block;
+			  
+			}
+			.c1Plugged {
+				position: relative;
+			  width: 50%;
+			  display: none;
+			  
+			}
+			.meta {
+			  position: absolute;
+			  top: 12%;
+			  left: 63%;
+			  width: 10%;
+			}
+		</style>
+	</head>
+
+	<body>
+	<h1>Ethereum Address Melody Generator by LogicBeach</h1>
+		<div class="parent" align="center">
+			<img class="c1Unplugged" src="unpluggedC1.png" alt="robot playing piano" >
+			<img class="c1Plugged" src="pluggedinc1.png" alt="robot playing piano" >
+			<input type="image" src="metamask.png" name="connect Web3" class="meta" onclick="PlugIn()">	
+		</div>
+	</body>
+<html>

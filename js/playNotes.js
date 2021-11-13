@@ -1,11 +1,17 @@
-		function playNotes(){
+		function sleep(ms) {
+	        return new Promise(resolve => setTimeout(resolve, ms));
+	    }
+
+		async function playNotes(){
 			var addr = getAddr();
 
-			const synth = new Tone.Synth().toMaster();
-			synth.triggerAttackRelease("C5", "4n");
+			const synth = new Tone.PolySynth().toMaster();
+			//synth.triggerAttackRelease("C5", "4n");
 			
 			var octave = 0
 			for (let i = 0; i < addr.length; i++){
+				
+				document.getElementById('iteration').innerHTML += i;
 				//print(Addr[i].isnumeric())
 			    if (isNumber(addr[i])){
 			        if (addr[i] == 0 || addr[i] == 1){
@@ -19,90 +25,125 @@
 			        }else if (addr[i] == 8){
 			            octave = 2
 			        }
-			        alert(addr[i]);
-			    }
+			        //alert(addr[i]);
+			    } else if (!isNumber(addr[i])) {
+			    	await sleep(200);
+			        //alert(addr[i].toLowerCase() );
+			        if (octave == -2){
+			            if (addr[i].toLowerCase() == 'a'){
+			                synth.triggerAttackRelease("A2", "4n");
+			            }
+			            if (addr[i].toLowerCase() == 'b'){
+			            	synth.triggerAttackRelease("B2", "4n");
+			            }
+			            if (addr[i].toLowerCase() == 'c'){
+			            	synth.triggerAttackRelease("C2", "4n");
+			            }
+			            if (addr[i].toLowerCase() == 'd'){
+			            	synth.triggerAttackRelease("D2", "4n");
+			            }
+			            if (addr[i].toLowerCase() == 'e'){
+			            	synth.triggerAttackRelease("E2", "4n");
+			            }
+			            if (addr[i].toLowerCase() == 'f'){
+			            	synth.triggerAttackRelease("F2", "4n");
+			            }
+			            if (addr[i].toLowerCase() == 'g'){
+			            	synth.triggerAttackRelease("G2", "4n");
+			            }
+			        } else if (octave == -1){
+			           if (addr[i].toLowerCase() == 'a'){
+			                synth.triggerAttackRelease("A3", "4n");
+			            }
+			            if (addr[i].toLowerCase() == 'b'){
+			            	synth.triggerAttackRelease("B3", "4n");
+			            }
+			            if (addr[i].toLowerCase() == 'c'){
+			            	synth.triggerAttackRelease("C3", "4n");
+			            }
+			            if (addr[i].toLowerCase() == 'd'){
+			            	synth.triggerAttackRelease("D3", "4n");
+			            }
+			            if (addr[i].toLowerCase() == 'e'){
+			            	synth.triggerAttackRelease("E3", "4n");
+			            }
+			            if (addr[i].toLowerCase() == 'f'){
+			            	synth.triggerAttackRelease("F3", "4n");
+			            }
+			            if (addr[i].toLowerCase() == 'g'){
+			            	synth.triggerAttackRelease("G3", "4n");
+			            }
+			        } else if (octave == 0){
+			            			           if (addr[i].toLowerCase() == 'a'){
+			                synth.triggerAttackRelease("A4", "4n");
+			            }
+			            if (addr[i].toLowerCase() == 'b'){
+			            	synth.triggerAttackRelease("B4", "4n");
+			            }
+			            if (addr[i].toLowerCase() == 'c'){
+			            	synth.triggerAttackRelease("C4", "4n");
+			            }
+			            if (addr[i].toLowerCase() == 'd'){
+			            	synth.triggerAttackRelease("D4", "4n");
+			            }
+			            if (addr[i].toLowerCase() == 'e'){
+			            	synth.triggerAttackRelease("E4", "4n");
+			            }
+			            if (addr[i].toLowerCase() == 'f'){
+			            	synth.triggerAttackRelease("F4", "4n");
+			            }
+			            if (addr[i].toLowerCase() == 'g'){
+			            	synth.triggerAttackRelease("G4", "4n");
+			            }
+			        }  else if (octave == 1){
+			           	if (addr[i].toLowerCase() == 'a'){
+			                synth.triggerAttackRelease("A5", "4n");
+			            }
+			            if (addr[i].toLowerCase() == 'b'){
+			            	synth.triggerAttackRelease("B5", "4n");
+			            }
+			            if (addr[i].toLowerCase() == 'c'){
+			            	synth.triggerAttackRelease("C5", "4n");
+			            }
+			            if (addr[i].toLowerCase() == 'd'){
+			            	synth.triggerAttackRelease("D5", "4n");
+			            }
+			            if (addr[i].toLowerCase() == 'e'){
+			            	synth.triggerAttackRelease("E5", "4n");
+			            }
+			            if (addr[i].toLowerCase() == 'f'){
+			            	synth.triggerAttackRelease("F5", "4n");
+			            }
+			            if (addr[i].toLowerCase() == 'g'){
+			            	synth.triggerAttackRelease("G5", "4n");
+			            }
+			        } else if (octave == 2){
+			            if (addr[i].toLowerCase() == 'a'){
+			                synth.triggerAttackRelease("A6", "4n");
+			            }
+			            if (addr[i].toLowerCase() == 'b'){
+			            	synth.triggerAttackRelease("B6", "4n");
+			            }
+			            if (addr[i].toLowerCase() == 'c'){
+			            	synth.triggerAttackRelease("C6", "4n");
+			            }
+			            if (addr[i].toLowerCase() == 'd'){
+			            	synth.triggerAttackRelease("D6", "4n");
+			            }
+			            if (addr[i].toLowerCase() == 'e'){
+			            	synth.triggerAttackRelease("E6", "4n");
+			            }
+			            if (addr[i].toLowerCase() == 'f'){
+			            	synth.triggerAttackRelease("F6", "4n");
+			            }
+			            if (addr[i].toLowerCase() == 'g'){
+			            	synth.triggerAttackRelease("G6", "4n");
+			            }
+			        }    
+			    }    
 			}    
-			        /*
-			    elif Addr[i].isalpha():
-			        #time.sleep(0.05)
-			        if octave == -2:
-			            if Addr[i].lower() == 'a':
-			                fluidsynth.play_Note(33,0,100)
-			            if Addr[i].lower() == 'b':
-			                fluidsynth.play_Note(35,0,100)
-			            if Addr[i].lower() == 'c':
-			                fluidsynth.play_Note(36,0,100)
-			            if Addr[i].lower() == 'd':
-			                fluidsynth.play_Note(38,0,100)
-			            if Addr[i].lower() == 'e':
-			                fluidsynth.play_Note(40,0,100)
-			            if Addr[i].lower() == 'f':
-			                fluidsynth.play_Note(41,0,100)
-			            if Addr[i].lower() == 'g':
-			                fluidsynth.play_Note(43,0,100)
-			        elif octave == -1:
-			            if Addr[i].lower() == 'a':
-			                fluidsynth.play_Note(45,0,100)
-			            if Addr[i].lower() == 'b':
-			                fluidsynth.play_Note(47,0,100)
-			            if Addr[i].lower() == 'c':
-			                fluidsynth.play_Note(48,0,100)
-			            if Addr[i].lower() == 'd':
-			                fluidsynth.play_Note(50,0,100)
-			            if Addr[i].lower() == 'e':
-			                fluidsynth.play_Note(52,0,100)
-			            if Addr[i].lower() == 'f':
-			                fluidsynth.play_Note(53,0,100)
-			            if Addr[i].lower() == 'g':
-			                fluidsynth.play_Note(55,0,100)
-			        elif octave == 0:
-			            if Addr[i].lower() == 'a':
-			                fluidsynth.play_Note(57,0,100)
-			            if Addr[i].lower() == 'b':
-			                fluidsynth.play_Note(59,0,100)
-			            if Addr[i].lower() == 'c':
-			                fluidsynth.play_Note(60,0,100)
-			            if Addr[i].lower() == 'd':
-			                fluidsynth.play_Note(62,0,100)
-			            if Addr[i].lower() == 'e':
-			                fluidsynth.play_Note(64,0,100)
-			            if Addr[i].lower() == 'f':
-			                fluidsynth.play_Note(65,0,100)
-			            if Addr[i].lower() == 'g':
-			                fluidsynth.play_Note(67,0,100)
-			        elif octave == 1:
-			            if Addr[i].lower() == 'a':
-			                fluidsynth.play_Note(69,0,100)
-			            if Addr[i].lower() == 'b':
-			                fluidsynth.play_Note(71,0,100)
-			            if Addr[i].lower() == 'c':
-			                fluidsynth.play_Note(72,0,100)
-			            if Addr[i].lower() == 'd':
-			                fluidsynth.play_Note(74,0,100)
-			            if Addr[i].lower() == 'e':
-			                fluidsynth.play_Note(76,0,100)
-			            if Addr[i].lower() == 'f':
-			                fluidsynth.play_Note(77,0,100)
-			            if Addr[i].lower() == 'g':
-			                fluidsynth.play_Note(79,0,100)
-			        elif octave == 2:
-			            if Addr[i].lower() == 'a':
-			                fluidsynth.play_Note(81,0,100)
-			            if Addr[i].lower() == 'b':
-			                fluidsynth.play_Note(83,0,100)
-			            if Addr[i].lower() == 'c':
-			                fluidsynth.play_Note(84,0,100)
-			            if Addr[i].lower() == 'd':
-			                fluidsynth.play_Note(86,0,100)
-			            if Addr[i].lower() == 'e':
-			                fluidsynth.play_Note(88,0,100)
-			            if Addr[i].lower() == 'f':
-			                fluidsynth.play_Note(89,0,100)
-			            if Addr[i].lower() == 'g':
-			                fluidsynth.play_Note(91,0,100)
-			        print(Addr[i])
-			    i += 1
-			*/
+			        
+			   
 		}
 
 		function getAddr(){
@@ -116,7 +157,7 @@
         			addr[i] = "g"
         		}
 			}
-    		alert(addr);
+    		//alert(addr);
     		return addr;
 		}
 

@@ -1,0 +1,34 @@
+    
+text{
+    text-align: center;
+    color: lightgrey;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+body {
+    background: linear-gradient(to left, rgb(235, 178, 178), rgb(119, 110, 202));
+    font-family: 'Courier New', Courier, monospace;
+}
+
+
+#iteration{
+    -webkit-transform: rotate(30deg);
+    text-shadow:  0 0 3px #FF0000, 0 0 5px #f9f9f9;
+}
+#c1Unplugged {
+    width: 400px;
+    position: relative;
+    display: inline-block;  
+}
+#c1Plugged {
+    width: 400px;
+    position: relative;
+    display: none;    
+}
+.meta
+{
+    position: absolute;
+    width:150px;
+    left: 275px;
+    top:0px;
+}

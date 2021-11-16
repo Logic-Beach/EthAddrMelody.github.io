@@ -1,92 +1,24 @@
 <!DOCTYPE html>
+<head>
+	<title>ETHaddrTune</title>
+	<meta charset="utf-8" />
+	<link rel="shortcut icon" href="#">
 
-<html>
-	<head>
-		<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
-		<meta content="utf-8" http-equiv="encoding">
-		
-		
-		<script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"
-        type="application/javascript"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tone/0.12.63/Tone.js"> </script>
+	<script src='js/playNotes.js'></script>
 
-		<style>
-			
-			h1 {
-				text-align: center;
-				color: lightgrey;
-				font-family: monospace;
-			}
-
-			body {
-				background-color: grey;
-			}
-
-			#c1Unplugged {
-				position: relative;
-			  width: 50%;
-			  display: inline-block;
-			  
-			}
-			#c1Plugged {
-				position: relative;
-			  width: 50%;
-			  display: none;
-			  
-			}
-			.meta {
-			  position: absolute;
-			  top: 12%;
-			  left: 63%;
-			  width: 10%;
-			}
-		</style>
-	</head>
-
-	<body>
-	<h1>Ethereum Address Melody Generator by LogicBeach</h1>
-	    <button id='loadAccountBtn'>
-			Load Account
-		</button>
-
-		<div class="parent" align="center">
-			<img id="c1Unplugged" src="unpluggedC1.png" alt="robot playing piano" >
-			<img id="c1Plugged" src="pluggedinc1.png" alt="robot playing piano" >
-			<input type="image" src="metamask.png" name="connect Web3" class="meta" onclick="PlugIn()">	
-		</div>
-
-
+	<link rel="stylesheet" href="style.css">
+</head>
 	
-
-	<script>
-		function PlugIn(){
-			document.getElementById("c1Plugged").style.display = 'inline-block';
-
-			document.getElementById("c1Unplugged").style.display = 'none';
-		}
-	</script>
-
-	<script>
-		
-		if (typeof window.ethereum =='undefined') {
-	  		console.log('MetaMask is not installed!');		
-	  	}
-		const provider = new web3.providers.Web3Provider(window.ethereum);
-					
-		async function loadAccount() {
-			
-			await window.ethereum.send('eth_requestAccounts');
-			const signer = provider.getSigner();
-			
-			console.log(signer);
-
-		}
-
-		const loadAccountBtn = document.querySelector('#loadAccountBtn');
-
-		loadAccountBtn.addEventListener('click', () => {
-		  loadAccount();
-		});
-	</script>
-
-	</body>
 <html>
+	<body>
+		<div class="parent" >
+			
+			<img id="c1Unplugged" src="images/unpluggedC1.png" alt="robot playing piano" >
+			<img id="c1Plugged" src="images/pluggedinc1.png" alt="robot playing piano" onclick="playNotes()" >
+			<input type="image" id='meta' src="images/metamask.png" 
+				name="connect Web3" class="meta" onclick="getAddr()">	
+			<div id='iteration'>Connect MM, Click R0b0t</div>
+		</div>
+	</body>
+</html> 
